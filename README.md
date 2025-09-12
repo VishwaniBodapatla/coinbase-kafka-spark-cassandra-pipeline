@@ -1,8 +1,12 @@
-# coinbase-kafka-spark-cassandra-pipeline
-Streams live cryptocurrency trades from CoinBase, processes them with Spark Streaming, stores results in Cassandra, and orchestrates workflows with Airflow using Docker.
+# CoinBase Kafka Spark Cassandra Pipeline
 
+Streams live cryptocurrency trades from **CoinBase**, processes them with **Spark Streaming**, stores results in **Cassandra**, and orchestrates workflows with **Airflow** using **Docker**.
 
+---
 
+## Project Structure
+
+```text
 .
 ├── airflow
 │   ├── Dockerfile
@@ -20,4 +24,3 @@ Streams live cryptocurrency trades from CoinBase, processes them with Spark Stre
 ├── docker-compose.yaml
 ├── README.md
 └── requirements.txt
-
