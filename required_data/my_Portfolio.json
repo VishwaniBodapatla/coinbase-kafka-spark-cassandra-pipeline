@@ -1,0 +1,38 @@
+{
+  "BTC-USD": {
+    "coin_name": "Bitcoin",
+    "buy_price": "56432.50",
+    "size": "0.05",
+    "buy_time": 1757474577048
+  },
+  "ETH-USD": {
+    "coin_name": "Ethereum",
+    "buy_price": "2120.40",
+    "size": "0.5",
+    "buy_time": 1757474577048
+  },
+  "BNB-USD": {
+    "coin_name": "BNB",
+    "buy_price": "305.80",
+    "size": "2.0",
+    "buy_time": 1757474577048
+  },
+  "ADA-USD": {
+    "coin_name": "Cardano",
+    "buy_price": "0.422",
+    "size": "1000",
+    "buy_time": 1757474577048
+  },
+  "DOGE-USD": {
+    "coin_name": "Dogecoin",
+    "buy_price": "0.25001",
+    "size": "5992.9",
+    "buy_time": 1757474577048
+  },
+  "SOL-USD": {
+    "coin_name": "Solana",
+    "buy_price": "145.75",
+    "size": "10",
+    "buy_time": 1757474577048
+  }
+}
