@@ -2,6 +2,7 @@
 
 This project implements a **real-time cryptocurrency data pipeline** using **Airflow, Kafka, Spark Streaming, and Cassandra**.  
 It streams live trades from **CoinBase**, processes them in real time, and stores enriched results for further analysis.
+All components run in Docker containers for easy deployment and reproducibility.
 
 ---
 
@@ -29,7 +30,10 @@ It streams live trades from **CoinBase**, processes them in real time, and store
 2. **Data Ingestion (WebSocket → Kafka)**  
    - The WebSocket subscribes only to cryptocurrencies listed in `my_Portfolio.json`.  
    - `coin_map.json` is used for symbol-to-name lookup.  
-   - Trade messages are transformed and published into a Kafka topic (`crypto_trades`).  
+   - Trade messages are transformed and published into a Kafka topic (`crypto_trades`).
+  
+   <img width="600" height="200" alt="Screenshot From 2025-09-12 18-40-00" src="https://github.com/user-attachments/assets/9cc2b40b-de58-4a2e-a367-7073eeecac8f" />
+
 
 3. **Stream Processing (Kafka → Spark)**  
    - Spark Structured Streaming consumes data from Kafka.  
@@ -40,19 +44,6 @@ It streams live trades from **CoinBase**, processes them in real time, and store
    - Each row contains symbol, event time, trade size, price, side, and computed profit.
   
      <img width="600" height="200" alt="cassandraProfit" src="https://github.com/user-attachments/assets/36a9166f-1afc-4eac-90be-cd236a775aea" />
-
-
----
-
-## Tech Stack  
-
-- **Apache Airflow** → Workflow orchestration  
-- **CoinBase WebSocket API** → Real-time trade data source  
-- **Apache Kafka** → Message streaming & buffering  
-- **Apache Spark (Structured Streaming)** → Real-time data processing & profit computation  
-- **Apache Cassandra** → Scalable storage for enriched trades  
-- **Docker Compose** → Containerized deployment of the entire stack  
-
 ---
 
 ## 📂 Project Structure  
