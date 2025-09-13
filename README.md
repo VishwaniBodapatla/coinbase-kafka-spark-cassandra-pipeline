@@ -11,11 +11,17 @@ It streams live trades from **CoinBase**, processes them in real time, and store
 
 ---
 
+<img width="1577" height="771" alt="CoinBase_Kafka_Spark_Airflow_Cassandra" src="https://github.com/user-attachments/assets/5fc3f03e-3d05-4331-9b78-66171cbc99ef" />
+
+
 ## 🚀 Workflow Overview  
 
 1. **Triggering the DAG (Airflow)**  
    - Airflow runs the DAG (`Crypto_Kafka_Stream.py`).  
-   - DAG starts a Python task that connects to the **CoinBase WebSocket API**.  
+   - DAG starts a Python task that connects to the **CoinBase WebSocket API**.
+
+     <img width="1584" height="751" alt="project2Airflow" src="https://github.com/user-attachments/assets/19259b1c-1749-4f15-9fff-ee7a791e4fab" />
+
 
 2. **Data Ingestion (WebSocket → Kafka)**  
    - The WebSocket subscribes only to cryptocurrencies listed in `my_Portfolio.json`.  
@@ -28,7 +34,10 @@ It streams live trades from **CoinBase**, processes them in real time, and store
 
 4. **Storage (Spark → Cassandra)**  
    - Processed data is written into a **Cassandra keyspace (`crypto_keyspace`)** and table (`crypto_trades`).  
-   - Each row contains symbol, event time, trade size, price, side, and computed profit.  
+   - Each row contains symbol, event time, trade size, price, side, and computed profit.
+  
+     <img width="1796" height="865" alt="cassandraProfit" src="https://github.com/user-attachments/assets/36a9166f-1afc-4eac-90be-cd236a775aea" />
+
 
 ---
 
