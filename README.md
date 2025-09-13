@@ -24,7 +24,7 @@ It streams live trades from **CoinBase**, processes them in real time, and store
 <img src="https://github.com/user-attachments/assets/19259b1c-1749-4f15-9fff-ee7a791e4fab" 
      alt="project2Airflow" 
      width="600" 
-     height="300"/>
+     height="200"/>
 
 2. **Data Ingestion (WebSocket → Kafka)**  
    - The WebSocket subscribes only to cryptocurrencies listed in `my_Portfolio.json`.  
@@ -39,12 +39,12 @@ It streams live trades from **CoinBase**, processes them in real time, and store
    - Processed data is written into a **Cassandra keyspace (`crypto_keyspace`)** and table (`crypto_trades`).  
    - Each row contains symbol, event time, trade size, price, side, and computed profit.
   
-     <img width="1796" height="865" alt="cassandraProfit" src="https://github.com/user-attachments/assets/36a9166f-1afc-4eac-90be-cd236a775aea" />
+     <img width="600" height="200" alt="cassandraProfit" src="https://github.com/user-attachments/assets/36a9166f-1afc-4eac-90be-cd236a775aea" />
 
 
 ---
 
-## 🔧 Tech Stack  
+## Tech Stack  
 
 - **Apache Airflow** → Workflow orchestration  
 - **CoinBase WebSocket API** → Real-time trade data source  
@@ -58,30 +58,6 @@ It streams live trades from **CoinBase**, processes them in real time, and store
 ## 📂 Project Structure  
 
 ```plaintext
-.
-├── airflow
-│   ├── Dockerfile
-│   ├── dags
-│   │   └── Crypto_Kafka_Stream.py
-│   └── script
-│       └── entrypoint.sh
-├── required_data
-│   ├── coin_map.json
-│   └── my_Portfolio.json
-├── spark
-│   ├── Dockerfile
-│   ├── requirements.txt
-│   └── spark_streaming.py
-├── docker-compose.yaml
-├── README.md
-└── requirements.txt
-
-
----
-
-## Project Structure
-
-```text
 .
 ├── airflow
 │   ├── Dockerfile
