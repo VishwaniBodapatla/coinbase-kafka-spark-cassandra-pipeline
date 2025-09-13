@@ -11,7 +11,8 @@ It streams live trades from **CoinBase**, processes them in real time, and store
 
 ---
 
-<img width="1577" height="771" alt="CoinBase_Kafka_Spark_Airflow_Cassandra" src="https://github.com/user-attachments/assets/5fc3f03e-3d05-4331-9b78-66171cbc99ef" />
+<img src="https://github.com/user-attachments/assets/5fc3f03e-3d05-4331-9b78-66171cbc99ef" alt="CoinBase_Kafka_Spark_Airflow_Cassandra" style="width:600px;"/>
+
 
 
 ## 🚀 Workflow Overview  
