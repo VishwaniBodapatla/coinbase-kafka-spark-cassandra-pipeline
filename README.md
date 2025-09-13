@@ -21,8 +21,10 @@ It streams live trades from **CoinBase**, processes them in real time, and store
    - Airflow runs the DAG (`Crypto_Kafka_Stream.py`).  
    - DAG starts a Python task that connects to the **CoinBase WebSocket API**.
 
-     <img width="1584" height="751" alt="project2Airflow" src="https://github.com/user-attachments/assets/19259b1c-1749-4f15-9fff-ee7a791e4fab" />
-
+<img src="https://github.com/user-attachments/assets/19259b1c-1749-4f15-9fff-ee7a791e4fab" 
+     alt="project2Airflow" 
+     width="600" 
+     height="300"/>
 
 2. **Data Ingestion (WebSocket → Kafka)**  
    - The WebSocket subscribes only to cryptocurrencies listed in `my_Portfolio.json`.  
