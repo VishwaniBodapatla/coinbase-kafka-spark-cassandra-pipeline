@@ -1,6 +1,69 @@
-# CoinBase Kafka Spark Cassandra Pipeline
+# Coinbase Kafka Spark Cassandra Pipeline
 
-Streams live cryptocurrency trades from **CoinBase**, processes them with **Spark Streaming**, stores results in **Cassandra**, and orchestrates workflows with **Airflow** using **Docker**.
+This project implements a **real-time cryptocurrency data pipeline** using **Airflow, Kafka, Spark Streaming, and Cassandra**.  
+It streams live trades from **CoinBase**, processes them in real time, and stores enriched results for further analysis.
+
+---
+
+## 📌 Summary  
+
+**Airflow orchestrates → WebSocket streams CoinBase trades → Kafka transports → Spark processes & computes profits → Cassandra stores results.**
+
+---
+
+## 🚀 Workflow Overview  
+
+1. **Triggering the DAG (Airflow)**  
+   - Airflow runs the DAG (`Crypto_Kafka_Stream.py`).  
+   - DAG starts a Python task that connects to the **CoinBase WebSocket API**.  
+
+2. **Data Ingestion (WebSocket → Kafka)**  
+   - The WebSocket subscribes only to cryptocurrencies listed in `my_Portfolio.json`.  
+   - `coin_map.json` is used for symbol-to-name lookup.  
+   - Trade messages are transformed and published into a Kafka topic (`crypto_trades`).  
+
+3. **Stream Processing (Kafka → Spark)**  
+   - Spark Structured Streaming consumes data from Kafka.  
+   - Data is parsed, cast into proper schema, and enriched with **profit calculation** based on portfolio buy prices & sizes.  
+
+4. **Storage (Spark → Cassandra)**  
+   - Processed data is written into a **Cassandra keyspace (`crypto_keyspace`)** and table (`crypto_trades`).  
+   - Each row contains symbol, event time, trade size, price, side, and computed profit.  
+
+---
+
+## 🔧 Tech Stack  
+
+- **Apache Airflow** → Workflow orchestration  
+- **CoinBase WebSocket API** → Real-time trade data source  
+- **Apache Kafka** → Message streaming & buffering  
+- **Apache Spark (Structured Streaming)** → Real-time data processing & profit computation  
+- **Apache Cassandra** → Scalable storage for enriched trades  
+- **Docker Compose** → Containerized deployment of the entire stack  
+
+---
+
+## 📂 Project Structure  
+
+```plaintext
+.
+├── airflow
+│   ├── Dockerfile
+│   ├── dags
+│   │   └── Crypto_Kafka_Stream.py
+│   └── script
+│       └── entrypoint.sh
+├── required_data
+│   ├── coin_map.json
+│   └── my_Portfolio.json
+├── spark
+│   ├── Dockerfile
+│   ├── requirements.txt
+│   └── spark_streaming.py
+├── docker-compose.yaml
+├── README.md
+└── requirements.txt
+
 
 ---
 
