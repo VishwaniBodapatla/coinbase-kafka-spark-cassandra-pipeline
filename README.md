@@ -1,4 +1,4 @@
-# Coinbase Kafka Spark Cassandra Pipeline
+# Coinbase Docker Airflow Kafka Spark Cassandra Pipeline
 
 This project implements a **real-time cryptocurrency data pipeline** using **Airflow, Kafka, Spark Streaming, and Cassandra**.  
 It streams live trades from **CoinBase**, processes them in real time, and stores enriched results for further analysis.
